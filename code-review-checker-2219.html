@@ -1,0 +1,2121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Code Review Checker</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('code-review-checker-theme');
+        document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+      } catch (_) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --panel-soft: #f8fafc;
+      --text: #172033;
+      --muted: #697386;
+      --border: #dce2ea;
+      --accent: #2563eb;
+      --accent-soft: #eaf1ff;
+      --fix: #b42318;
+      --fix-soft: #fff1f0;
+      --warn: #b54708;
+      --warn-soft: #fff7ed;
+      --info: #175cd3;
+      --info-soft: #eff6ff;
+      --ok: #067647;
+      --ok-soft: #ecfdf3;
+      --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      --editor-bg: #101827;
+      --editor-text: #e5edf8;
+      --gutter-bg: #0c1320;
+      --gutter-text: #718096;
+      --line-height: 22px;
+      --radius: 14px;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0f131a;
+      --panel: #171c24;
+      --panel-soft: #1c222c;
+      --text: #eef2f7;
+      --muted: #9ca8b8;
+      --border: #303844;
+      --accent: #6ea8fe;
+      --accent-soft: #1e3158;
+      --fix: #ff8b82;
+      --fix-soft: #43201f;
+      --warn: #ffb866;
+      --warn-soft: #3d2b16;
+      --info: #8cb8ff;
+      --info-soft: #1a2d4a;
+      --ok: #6ce9a6;
+      --ok-soft: #15372a;
+      --shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+      --editor-bg: #0b111c;
+      --editor-text: #e7edf7;
+      --gutter-bg: #080d15;
+      --gutter-text: #667085;
+    }
+
+    html[data-theme="light"] { color-scheme: light; }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+      font-size: 14px;
+    }
+
+    button, textarea { font: inherit; }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 96%, transparent);
+      position: relative;
+      z-index: 10;
+      flex: 0 0 auto;
+      backdrop-filter: blur(12px);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: block;
+      object-fit: cover;
+      flex: 0 0 auto;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel-soft);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .privacy-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 3px var(--ok-soft);
+    }
+
+
+    .theme-toggle {
+      min-height: 34px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      background: var(--panel);
+    }
+
+    .theme-toggle:active { transform: translateY(1px); }
+
+    .theme-toggle:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 28%, transparent);
+      outline-offset: 2px;
+    }
+
+    .theme-toggle-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .workspace {
+      width: min(1600px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
+      gap: 16px;
+      flex: 1 1 0;
+      min-height: 0;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .editor-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .panel-head {
+      min-height: 58px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+      font-weight: 700;
+    }
+
+    .language-tabs {
+      display: inline-flex;
+      gap: 6px;
+      padding: 3px;
+      background: var(--panel-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .lang-btn {
+      position: relative;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 7px;
+      background: transparent !important;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-weight: 700;
+      transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text);
+      background: color-mix(in srgb, var(--panel) 55%, transparent) !important;
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background: var(--accent-soft) !important;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      background: var(--panel) !important;
+      color: var(--accent);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .ghost-btn {
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--panel-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .ghost-btn:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+    .ghost-btn:disabled { opacity: .45; cursor: default; }
+
+    .editor-wrap {
+      position: relative;
+      flex: 1 1 0;
+      min-height: 0;
+      overflow: hidden;
+      background: var(--editor-bg);
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+    }
+
+    .gutter {
+      background: var(--gutter-bg);
+      color: var(--gutter-text);
+      border-right: 1px solid rgba(255,255,255,.06);
+      overflow: hidden;
+      user-select: none;
+      padding: 14px 0 28px;
+      font: 13px/var(--line-height) ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .gutter-inner { will-change: transform; }
+
+    .gutter-line {
+      position: relative;
+      height: var(--line-height);
+      padding-right: 12px;
+      text-align: right;
+    }
+
+    .gutter-line.has-issue::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--warn);
+    }
+
+    .gutter-line.has-fix::before { background: #f97066; }
+    .gutter-line.has-info::before { background: #84adff; }
+
+    #codeInput {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      resize: none;
+      border: 0;
+      outline: 0;
+      margin: 0;
+      padding: 14px 16px 28px;
+      background: var(--editor-bg);
+      color: var(--editor-text);
+      caret-color: #9ec5ff;
+      tab-size: 2;
+      white-space: pre;
+      overflow: auto;
+      font: 13px/var(--line-height) ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      overscroll-behavior: contain;
+    }
+
+    #codeInput::placeholder { color: #617089; }
+    #codeInput::selection { background: rgba(66, 133, 244, .35); }
+
+    .editor-foot {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .kbd {
+      display: inline-flex;
+      align-items: center;
+      min-height: 20px;
+      padding: 0 6px;
+      border: 1px solid var(--border);
+      border-bottom-width: 2px;
+      border-radius: 5px;
+      background: var(--panel-soft);
+      color: var(--muted);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .review-panel {
+      min-height: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-summary {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .count-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 28px;
+      padding: 0 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .count-pill.fix { color: var(--fix); background: var(--fix-soft); }
+    .count-pill.warn { color: var(--warn); background: var(--warn-soft); }
+    .count-pill.info { color: var(--info); background: var(--info-soft); }
+
+    .result-list {
+      padding: 12px;
+      overflow: auto;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .issue-card {
+      width: 100%;
+      text-align: left;
+      padding: 12px 12px 11px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--panel);
+      color: var(--text);
+      margin-bottom: 9px;
+      transition: 120ms ease;
+    }
+
+    .issue-card:hover {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      transform: translateY(-1px);
+      box-shadow: 0 7px 16px rgba(15, 23, 42, .07);
+    }
+
+    .line-card {
+      width: 100%;
+      text-align: left;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--panel);
+      color: var(--text);
+      margin-bottom: 10px;
+      transition: 120ms ease;
+    }
+
+    .line-card:hover {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      box-shadow: 0 7px 16px rgba(15, 23, 42, .07);
+    }
+
+    .line-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .line-code {
+      margin: 0 0 10px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      background: var(--panel-soft);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      color: var(--text);
+      font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      white-space: pre;
+    }
+
+    .line-issues {
+      display: grid;
+      gap: 8px;
+    }
+
+    .line-issue {
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .line-issue:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .issue-meta {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+    }
+
+    .category-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel-soft);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .fix-example {
+      margin-top: 6px;
+      padding: 7px 9px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .fix-example strong {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .more-issues {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .issue-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      min-width: 0;
+    }
+
+    .level-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .level-chip.fix { color: var(--fix); background: var(--fix-soft); }
+    .level-chip.warn { color: var(--warn); background: var(--warn-soft); }
+    .level-chip.info { color: var(--info); background: var(--info-soft); }
+
+    .line-label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .issue-title {
+      font-weight: 780;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .issue-message,
+    .issue-suggestion {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 12.5px;
+    }
+
+    .issue-suggestion {
+      margin-top: 5px;
+      color: color-mix(in srgb, var(--text) 80%, var(--muted));
+    }
+
+    .issue-snippet {
+      margin-top: 8px;
+      padding: 7px 8px;
+      border-radius: 7px;
+      background: var(--panel-soft);
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .empty-state {
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 20px;
+    }
+
+    .empty-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 12px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--ok-soft);
+      color: var(--ok);
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .empty-title {
+      color: var(--text);
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .empty-state[data-kind="waiting"] .empty-icon {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 16px);
+      padding: 9px 12px;
+      border-radius: 9px;
+      background: #111827;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,.24);
+      opacity: 0;
+      pointer-events: none;
+      transition: 160ms ease;
+      z-index: 50;
+      font-size: 12px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 980px) {
+      .workspace {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.1fr) minmax(0, .9fr);
+        height: auto;
+        overflow: hidden;
+      }
+      .editor-panel, .review-panel { min-height: 0; height: 100%; }
+      .editor-wrap, #codeInput { min-height: 0; }
+      .review-panel { max-height: none; }
+      .result-list { max-height: none; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar { align-items: flex-start; padding: 14px; }
+      .privacy-badge { display: none; }
+      .workspace { padding: 10px; gap: 10px; }
+      .panel-head { align-items: flex-start; flex-direction: column; }
+      .actions { width: 100%; justify-content: flex-start; }
+      .language-tabs { width: 100%; }
+      .lang-btn { flex: 1; }
+      .editor-wrap, #codeInput { min-height: 0; }
+      .editor-foot { align-items: flex-start; flex-direction: column; }
+      .subtitle { max-width: 56vw; }
+      .theme-toggle-label { display: none; }
+      .theme-toggle { width: 34px; padding: 0; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div>
+          <h1>Code Review Checker</h1>
+          
+        </div>
+      </div>
+      <div class="top-status">
+        <span class="privacy-badge" title="このHTMLは外部通信を行いません">Local only / 外部通信なし</span>
+        <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="ダークモードに切り替え" title="表示モードを切り替え">
+          <span id="themeToggleIcon" class="theme-toggle-icon" aria-hidden="true">☀</span>
+          <span id="themeToggleLabel" class="theme-toggle-label">ライト</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <section class="panel editor-panel" aria-label="コード入力">
+        <div class="panel-head">
+          <div class="language-tabs" role="group" aria-label="言語切替">
+            <button type="button" class="lang-btn" data-language="java" aria-pressed="true">Java</button>
+            <button type="button" class="lang-btn" data-language="javascript" aria-pressed="false">JavaScript</button>
+          </div>
+          <div class="actions">
+            <button type="button" id="clearBtn" class="ghost-btn">クリア</button>
+          </div>
+        </div>
+
+        <div class="editor-wrap">
+          <div class="gutter" aria-hidden="true"><div id="gutterInner" class="gutter-inner"></div></div>
+          <textarea id="codeInput" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-label="レビュー対象コード" placeholder="ここにコードを貼り付けてください。"></textarea>
+        </div>
+
+        <div class="editor-foot">
+          <div>貼り付けたコードは保存しません。</div>
+          
+        </div>
+      </section>
+
+      <aside class="panel review-panel" aria-label="レビュー結果">
+        <div class="panel-head">
+          <div class="panel-title">レビュー結果</div>
+          <div class="actions">
+            <div id="summary" class="review-summary" aria-live="polite"></div>
+            <button type="button" id="copyBtn" class="ghost-btn" disabled>結果をコピー</button>
+          </div>
+        </div>
+        <div id="resultList" class="result-list"></div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const REVIEW_DELAY_MS = 300;
+      const LONG_LINE_LIMIT = 120;
+      const MAX_ISSUES_PER_LINE = 3;
+      const AMBIGUOUS_NAMES = new Set(['data', 'info', 'value', 'item', 'obj', 'object', 'tmp', 'temp', 'result']);
+      const ALLOWED_SHORT_NAMES = new Set(['i', 'j', 'k', 'x', 'y', 'e']);
+      const BOOLEAN_PREFIXES = ['is', 'has', 'can', 'should', 'needs', 'contains', 'exists', 'supports'];
+      const METHOD_TYPE_SUFFIXES = ['String', 'Str', 'Int', 'Bool', 'Boolean', 'Array', 'List', 'Obj', 'Object'];
+      const HUNGARIAN_PREFIXES = ['str', 'int', 'bool', 'arr', 'lst', 'obj'];
+      const ABBREVIATIONS = {
+        usr: 'user',
+        cnt: 'count',
+        msg: 'message',
+        cfg: 'config'
+      };
+
+      const els = {
+        code: document.getElementById('codeInput'),
+        gutter: document.getElementById('gutterInner'),
+        resultList: document.getElementById('resultList'),
+        summary: document.getElementById('summary'),
+        themeToggle: document.getElementById('themeToggle'),
+        themeToggleIcon: document.getElementById('themeToggleIcon'),
+        themeToggleLabel: document.getElementById('themeToggleLabel'),
+        copyBtn: document.getElementById('copyBtn'),
+        clearBtn: document.getElementById('clearBtn'),
+        toast: document.getElementById('toast'),
+        langBtns: Array.from(document.querySelectorAll('.lang-btn'))
+      };
+
+      let language = 'java';
+      let reviewTimer = null;
+      let lastIssues = [];
+      let lastLex = null;
+      let toastTimer = null;
+      const THEME_STORAGE_KEY = 'code-review-checker-theme';
+
+      function getTheme() {
+        return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      }
+
+      function renderThemeToggle() {
+        const isDark = getTheme() === 'dark';
+        els.themeToggle.setAttribute('aria-pressed', String(isDark));
+        els.themeToggle.setAttribute('aria-label', isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え');
+        els.themeToggleIcon.textContent = isDark ? '☾' : '☀';
+        els.themeToggleLabel.textContent = isDark ? 'ダーク' : 'ライト';
+      }
+
+      function setTheme(theme, persist = true) {
+        const nextTheme = theme === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = nextTheme;
+        renderThemeToggle();
+        if (persist) {
+          try {
+            localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+          } catch (_) {
+            // localStorageが使えない環境でもテーマ切替自体は継続する。
+          }
+        }
+      }
+
+      function showToast(message) {
+        els.toast.textContent = message;
+        els.toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1600);
+      }
+
+
+      function scheduleReview() {
+        clearTimeout(reviewTimer);
+        reviewTimer = setTimeout(runReview, REVIEW_DELAY_MS);
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#039;');
+      }
+
+      function levelLabel(level) {
+        return level === 'fix' ? '要修正' : level === 'warn' ? '警告' : '情報';
+      }
+
+      function addIssue(issues, issue) {
+        const line = Math.max(1, issue.line || 1);
+        issues.push({
+          level: 'warn',
+          suggestion: '',
+          message: '',
+          endLine: line,
+          ...issue,
+          line,
+          endLine: Math.max(line, issue.endLine || line)
+        });
+      }
+
+      function isLowerCamel(name) {
+        return /^[a-z][A-Za-z0-9]*$/.test(name);
+      }
+
+      function isPascal(name) {
+        return /^[A-Z][A-Za-z0-9]*$/.test(name);
+      }
+
+      function isUpperSnake(name) {
+        return /^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*$/.test(name);
+      }
+
+      function startsWithBooleanPrefix(name) {
+        return BOOLEAN_PREFIXES.some(prefix => name.startsWith(prefix) && name.length > prefix.length && /[A-Z]/.test(name[prefix.length]));
+      }
+
+      function toUpperSnake(name) {
+        return name
+          .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+          .replace(/[-\s]+/g, '_')
+          .replace(/__+/g, '_')
+          .toUpperCase();
+      }
+
+      function countLeadingSpaces(line) {
+        const match = line.match(/^[ ]*/);
+        return match ? match[0].length : 0;
+      }
+
+      function lineSnippet(lines, line) {
+        const raw = lines[line - 1] || '';
+        return raw.trim().replace(/\s+/g, ' ').slice(0, 160);
+      }
+
+      function lexSource(source, lang) {
+        const lines = source.split('\n');
+        const noComments = [];
+        const structural = [];
+        const stringsByLine = lines.map(() => []);
+        const comments = [];
+
+        let state = 'code';
+        let blockCommentStartLine = -1;
+        let blockCommentText = '';
+        let stringQuote = '';
+        let stringStartLine = -1;
+        let textBlock = false;
+
+        for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+          const line = lines[lineIndex];
+          let nc = '';
+          let st = '';
+          let i = 0;
+          let lineCommentText = '';
+          let lineCommentStart = -1;
+
+          while (i < line.length) {
+            const ch = line[i];
+            const next = line[i + 1] || '';
+            const triple = line.slice(i, i + 3);
+
+            if (state === 'blockComment') {
+              if (ch === '*' && next === '/') {
+                blockCommentText += '*/';
+                nc += '  ';
+                st += '  ';
+                i += 2;
+                state = 'code';
+                comments.push({
+                  type: 'block',
+                  startLine: blockCommentStartLine + 1,
+                  endLine: lineIndex + 1,
+                  text: blockCommentText
+                });
+                blockCommentText = '';
+                blockCommentStartLine = -1;
+              } else {
+                blockCommentText += ch;
+                nc += ch === '\t' ? '\t' : ' ';
+                st += ch === '\t' ? '\t' : ' ';
+                i++;
+              }
+              continue;
+            }
+
+            if (state === 'string') {
+              const token = stringsByLine[lineIndex].find(t => t.open && t.end == null);
+
+              if (textBlock) {
+                if (triple === '"""') {
+                  nc += '"""';
+                  st += '   ';
+                  if (token) { token.end = i + 3; token.text += '"""'; token.open = false; }
+                  i += 3;
+                  state = 'code';
+                  textBlock = false;
+                  stringQuote = '';
+                } else {
+                  nc += ch;
+                  st += ch === '\t' ? '\t' : ' ';
+                  if (token) token.text += ch;
+                  i++;
+                }
+                continue;
+              }
+
+              if (ch === '\\') {
+                nc += ch;
+                st += ' ';
+                if (token) token.text += ch;
+                if (i + 1 < line.length) {
+                  nc += line[i + 1];
+                  st += line[i + 1] === '\t' ? '\t' : ' ';
+                  if (token) token.text += line[i + 1];
+                  i += 2;
+                } else {
+                  i++;
+                }
+                continue;
+              }
+
+              if (ch === stringQuote) {
+                nc += ch;
+                st += ' ';
+                if (token) { token.end = i + 1; token.text += ch; token.open = false; }
+                i++;
+                state = 'code';
+                stringQuote = '';
+                continue;
+              }
+
+              nc += ch;
+              st += ch === '\t' ? '\t' : ' ';
+              if (token) token.text += ch;
+              i++;
+              continue;
+            }
+
+            if (ch === '/' && next === '/') {
+              lineCommentStart = i;
+              lineCommentText = line.slice(i);
+              nc += ' '.repeat(line.length - i);
+              st += ' '.repeat(line.length - i);
+              i = line.length;
+              break;
+            }
+
+            if (ch === '/' && next === '*') {
+              state = 'blockComment';
+              blockCommentStartLine = lineIndex;
+              blockCommentText = '/*';
+              nc += '  ';
+              st += '  ';
+              i += 2;
+              continue;
+            }
+
+            if (lang === 'java' && triple === '"""') {
+              state = 'string';
+              stringQuote = '"';
+              textBlock = true;
+              stringStartLine = lineIndex;
+              stringsByLine[lineIndex].push({ start: i, end: null, quote: '"""', text: '"""', open: true, startLine: stringStartLine });
+              nc += '"""';
+              st += '   ';
+              i += 3;
+              continue;
+            }
+
+            const isStringStart = lang === 'javascript'
+              ? ch === "'" || ch === '"' || ch === '`'
+              : ch === "'" || ch === '"';
+
+            if (isStringStart) {
+              state = 'string';
+              stringQuote = ch;
+              stringStartLine = lineIndex;
+              stringsByLine[lineIndex].push({ start: i, end: null, quote: ch, text: ch, open: true, startLine: stringStartLine });
+              nc += ch;
+              st += ' ';
+              i++;
+              continue;
+            }
+
+            nc += ch;
+            st += ch;
+            i++;
+          }
+
+          if (lineCommentStart >= 0) {
+            comments.push({ type: 'line', startLine: lineIndex + 1, endLine: lineIndex + 1, text: lineCommentText, startCol: lineCommentStart });
+          }
+
+          if (state === 'blockComment') blockCommentText += '\n';
+
+          if (state === 'string' && !textBlock && stringQuote !== '`') {
+            const token = stringsByLine[lineIndex].find(t => t.open && t.end == null);
+            if (token) { token.end = line.length; token.open = false; }
+            state = 'code';
+            stringQuote = '';
+          } else if (state === 'string' && stringQuote === '`') {
+            const token = stringsByLine[lineIndex].find(t => t.open && t.end == null);
+            if (token) { token.end = line.length; token.open = false; }
+          }
+
+          noComments.push(nc);
+          structural.push(st);
+        }
+
+        if (state === 'blockComment' && blockCommentStartLine >= 0) {
+          comments.push({
+            type: 'block',
+            startLine: blockCommentStartLine + 1,
+            endLine: lines.length,
+            text: blockCommentText
+          });
+        }
+
+        return { lines, noComments, structural, stringsByLine, comments };
+      }
+
+      function groupLineComments(comments) {
+        const grouped = [];
+        const sorted = comments.slice().sort((a, b) => a.startLine - b.startLine);
+        for (const comment of sorted) {
+          if (comment.type !== 'line') {
+            grouped.push(comment);
+            continue;
+          }
+          const last = grouped[grouped.length - 1];
+          if (last && last.type === 'line-group' && last.endLine + 1 === comment.startLine) {
+            last.endLine = comment.endLine;
+            last.text += '\n' + comment.text;
+          } else {
+            grouped.push({ type: 'line-group', startLine: comment.startLine, endLine: comment.endLine, text: comment.text });
+          }
+        }
+        return grouped;
+      }
+
+      function looksLikeCommentedCode(text, lang) {
+        const clean = text
+          .replace(/^\/\*+/, '')
+          .replace(/\*+\/$/, '')
+          .split('\n')
+          .map(line => line.replace(/^\s*\/\/\s?/, '').replace(/^\s*\*\s?/, '').trim())
+          .join('\n')
+          .trim();
+
+        if (!clean || /^@\w+/.test(clean) || /^\w+\s*[:：]/.test(clean)) return false;
+        if (lang === 'java' && /^(?:@param|@return|@throws|@see|@since|@author)\b/m.test(clean)) return false;
+
+        const commonPatterns = [
+          /\b(?:if|for|while|switch|return|new|throw|try|catch|class|function)\b\s*[({]?/,
+          /\b[A-Za-z_$][\w$]*\s*=\s*[^=]/,
+          /\b[A-Za-z_$][\w$]*\s*\([^)]*\)\s*;?/,
+          /[;{}]/
+        ];
+        const javaPatterns = [/\b(?:public|private|protected|static|final|String|boolean|int|long|double|List|Set|Map)\b/];
+        const jsPatterns = [/\b(?:const|let|var|async|await)\b/, /=>/];
+        const patterns = commonPatterns.concat(lang === 'java' ? javaPatterns : jsPatterns);
+        return patterns.some(pattern => pattern.test(clean));
+      }
+
+      function analyzeComments(lex, lang, issues) {
+        const grouped = groupLineComments(lex.comments);
+        for (const comment of grouped) {
+          const text = comment.text || '';
+          if (/\b(?:TODO|FIXME)\b/i.test(text)) {
+            addIssue(issues, {
+              level: 'info', line: comment.startLine, endLine: comment.endLine,
+              title: 'TODO / FIXME コメントがあります',
+              message: '未完了の作業や暫定対応が残っていないか確認してください。',
+              suggestion: '不要なら削除し、必要ならチケットや対応方針と紐づけると追跡しやすくなります。'
+            });
+          }
+          if (looksLikeCommentedCode(text, lang)) {
+            addIssue(issues, {
+              level: 'info', line: comment.startLine, endLine: comment.endLine,
+              title: 'コメントアウトされたコードの可能性があります',
+              message: 'コメント内のコードは通常ルールではチェックしていません。',
+              suggestion: '不要なコードなら削除し、履歴はバージョン管理に任せるのがおすすめです。'
+            });
+          }
+        }
+      }
+
+      function analyzeCommon(lex, lang, issues) {
+        const { lines, noComments, structural } = lex;
+
+        lines.forEach((line, index) => {
+          if (line.replace(/\t/g, '  ').length > LONG_LINE_LIMIT) {
+            addIssue(issues, {
+              level: 'info', line: index + 1,
+              title: `1行が${LONG_LINE_LIMIT}文字を超えています`,
+              message: '横スクロールやレビュー時の読みづらさにつながります。',
+              suggestion: '式や引数を適切な位置で改行してください。'
+            });
+          }
+        });
+
+        // Class names
+        structural.forEach((line, index) => {
+          const match = line.match(/\bclass\s+([A-Za-z_$][\w$]*)/);
+          if (match && !isPascal(match[1])) {
+            addIssue(issues, {
+              level: 'fix', line: index + 1,
+              title: `クラス名「${match[1]}」は PascalCase にしてください`,
+              suggestion: '例: UserService / OrderController'
+            });
+          }
+        });
+
+        // Generic deep nesting by brace depth.
+        let depth = 0;
+        let deepReportedAt = -1;
+        structural.forEach((line, index) => {
+          const trimmed = line.trimStart();
+          const closesFirst = trimmed.startsWith('}') ? 1 : 0;
+          const effectiveDepth = Math.max(0, depth - closesFirst);
+          if (effectiveDepth >= 4 && deepReportedAt !== effectiveDepth) {
+            addIssue(issues, {
+              level: 'info', line: index + 1,
+              title: 'ネストが深くなっています',
+              message: `現在のブロック深度はおよそ ${effectiveDepth} 階層です。`,
+              suggestion: '早期return、処理の分割、条件式の整理を検討してください。'
+            });
+            deepReportedAt = effectiveDepth;
+          }
+          for (const ch of line) {
+            if (ch === '{') depth++;
+            if (ch === '}') depth = Math.max(0, depth - 1);
+          }
+          if (depth < 4) deepReportedAt = -1;
+        });
+
+        if (lang === 'java') analyzeJavaNaming(lex, issues);
+        else analyzeJavaScriptNaming(lex, issues);
+      }
+
+      function checkVariableName(name, type, line, context, issues, options = {}) {
+        if (!name || options.constant) return;
+
+        if (AMBIGUOUS_NAMES.has(name)) {
+          addIssue(issues, {
+            level: 'info', line,
+            title: `変数名「${name}」は意味が広すぎます`,
+            message: '変数名だけで中身や役割が分かる名前を検討してください。',
+            suggestion: '例: userProfile / activeUsers / validationResult'
+          });
+        }
+
+        if (/flag$/i.test(name) || name.toLowerCase() === 'flag') {
+          addIssue(issues, {
+            level: 'warn', line,
+            title: `「${name}」では true / false の意味が分かりにくいです`,
+            suggestion: 'is / has / can / should など、状態を質問として読める名前を使ってください。'
+          });
+        }
+
+        if (name.length === 1 && !ALLOWED_SHORT_NAMES.has(name)) {
+          addIssue(issues, {
+            level: 'warn', line,
+            title: `1文字の変数名「${name}」は避けてください`,
+            suggestion: '役割が分かる具体的な名前にしてください。'
+          });
+        }
+
+        if (name.length === 1 && ALLOWED_SHORT_NAMES.has(name)) {
+          const allowedContext = /\bfor\s*\(|=>|\bcatch\s*\(/.test(context);
+          if (!allowedContext) {
+            addIssue(issues, {
+              level: 'info', line,
+              title: `短い変数名「${name}」を確認してください`,
+              message: 'ループ変数や短いコールバック以外では、具体名の方が読みやすくなります。'
+            });
+          }
+        }
+
+        if (!isLowerCamel(name) && name.length > 1 && !/^_/.test(name)) {
+          addIssue(issues, {
+            level: 'warn', line,
+            title: `変数名「${name}」は lowerCamelCase にしてください`,
+            suggestion: '例: userName / retryCount / activeUsers'
+          });
+        }
+
+        for (const prefix of HUNGARIAN_PREFIXES) {
+          if (new RegExp(`^${prefix}[A-Z]`).test(name)) {
+            addIssue(issues, {
+              level: 'info', line,
+              title: `型を表す接頭辞「${prefix}」は変数名に不要です`,
+              suggestion: '型ではなく、値の意味や役割を名前にしてください。'
+            });
+            break;
+          }
+        }
+
+        for (const [abbr, full] of Object.entries(ABBREVIATIONS)) {
+          const abbrPattern = new RegExp(`(^${abbr}(?=[A-Z_]|$)|_${abbr}(?=_|$))`, 'i');
+          if (abbrPattern.test(name)) {
+            addIssue(issues, {
+              level: 'info', line,
+              title: `略語「${abbr}」を避けてください`,
+              suggestion: `「${full}」のように意味が分かる単語を使ってください。`
+            });
+            break;
+          }
+        }
+
+        const booleanType = /^(?:boolean|Boolean)$/i.test(type || '');
+        const booleanInitializer = /\b(?:true|false)\b|===|!==|==|!=|\binstanceof\b/.test(options.initializer || '');
+        if ((booleanType || booleanInitializer) && !startsWithBooleanPrefix(name)) {
+          addIssue(issues, {
+            level: 'warn', line,
+            title: `Boolean変数「${name}」は状態が分かる名前にしてください`,
+            suggestion: '例: isActive / hasPermission / canEdit / shouldRetry'
+          });
+        }
+
+        if (/^(?:isNot|hasNo|cannot|cant|shouldNot)[A-Z]/.test(name)) {
+          addIssue(issues, {
+            level: 'info', line,
+            title: `否定形のBoolean名「${name}」は読み間違いに注意してください`,
+            suggestion: '肯定形の状態名に置き換えられないか検討してください。'
+          });
+        }
+      }
+
+      function checkMethodName(name, line, returnType, previousLine, issues) {
+        if (!name) return;
+        if (!isLowerCamel(name)) {
+          addIssue(issues, {
+            level: 'fix', line,
+            title: `メソッド名「${name}」は lowerCamelCase にしてください`,
+            suggestion: '例: getUser / saveOrder / calculateTotal'
+          });
+        }
+
+        const ambiguous = new Set(['process', 'execute', 'doSomething', 'handle']);
+        if (ambiguous.has(name)) {
+          addIssue(issues, {
+            level: 'info', line,
+            title: `メソッド名「${name}」は処理内容が伝わりにくい可能性があります`,
+            suggestion: '何を処理するのかまで名前に含めてください。例: processOrder / handleLoginError'
+          });
+        }
+
+        if (/^(?:boolean|Boolean)$/i.test(returnType || '') && !startsWithBooleanPrefix(name)) {
+          addIssue(issues, {
+            level: 'warn', line,
+            title: `Booleanを返すメソッド「${name}」の名前を確認してください`,
+            suggestion: 'is / has / can / should などから始めると意図が明確です。'
+          });
+        }
+
+        const suffix = METHOD_TYPE_SUFFIXES.find(value => name.endsWith(value));
+        if (suffix) {
+          addIssue(issues, {
+            level: 'info', line,
+            title: `メソッド名に型情報「${suffix}」が含まれています`,
+            suggestion: '型ではなく、返す値や処理の意味を名前にしてください。'
+          });
+        }
+      }
+
+      function analyzeJavaNaming(lex, issues) {
+        const { structural, noComments } = lex;
+        const stringVars = new Set();
+        let enumDepth = null;
+        let depth = 0;
+
+        structural.forEach((line, index) => {
+          const original = noComments[index];
+          const lineNo = index + 1;
+          const prev = index > 0 ? structural[index - 1] : '';
+
+          const constantMatch = line.match(/\bstatic\s+final\s+[\w<>?, .\[\]]+\s+([A-Za-z_$][\w$]*)\s*(?:=|;)/);
+          if (constantMatch && !isUpperSnake(constantMatch[1])) {
+            addIssue(issues, {
+              level: 'fix', line: lineNo,
+              title: `Java定数「${constantMatch[1]}」は UPPER_SNAKE_CASE にしてください`,
+              suggestion: `例: ${toUpperSnake(constantMatch[1])}`
+            });
+          }
+
+          const methodMatch = line.match(/^\s*(?:@[\w().,\s]+\s*)*(?:(?:public|protected|private|static|final|synchronized|abstract|native|default)\s+)*([\w<>?, .\[\]]+)\s+([A-Za-z_$][\w$]*)\s*\([^;]*\)\s*(?:throws\s+[^\{]+)?\{/);
+          if (methodMatch && !/\b(?:if|for|while|switch|catch)\s*$/.test(methodMatch[1])) {
+            const returnType = methodMatch[1].trim().split(/\s+/).pop();
+            const name = methodMatch[2];
+            // Constructor has no return type; this regex can mistake it. Skip if name equals a known class on same file.
+            const classNames = structural.map(v => (v.match(/\bclass\s+([A-Za-z_$][\w$]*)/) || [])[1]).filter(Boolean);
+            if (!classNames.includes(name)) checkMethodName(name, lineNo, returnType, prev, issues);
+          }
+
+          const declaration = line.match(/\b([A-Za-z_$][\w$]*(?:\s*<[^;=]+>)?(?:\[\])?)\s+([A-Za-z_$][\w$]*)\s*(?:=\s*([^;]+))?;/);
+          if (declaration && !/\b(?:return|new|throw|case)\b/.test(line.slice(0, declaration.index))) {
+            const type = declaration[1].replace(/\s+/g, ' ').trim();
+            const name = declaration[2];
+            const initializer = declaration[3] || '';
+            const isConstant = /\bstatic\s+final\b/.test(line);
+            checkVariableName(name, type, lineNo, original, issues, { initializer, constant: isConstant });
+            if (/^String(?:\[\])?$/.test(type)) stringVars.add(name);
+
+            if (/^(?:List|Set|Collection|ArrayList|HashSet|LinkedList|Iterable|Stream)\b/.test(type) && !/(?:s|List|Set|Collection)$/.test(name)) {
+              addIssue(issues, {
+                level: 'warn', line: lineNo,
+                title: `コレクション変数「${name}」は複数形が分かる名前にしてください`,
+                suggestion: '例: users / userList / orderIds'
+              });
+            }
+          }
+
+          const enumStart = line.match(/\benum\s+[A-Za-z_$][\w$]*\s*\{/);
+          if (enumStart) enumDepth = depth + 1;
+          if (enumDepth != null && depth >= enumDepth) {
+            const enumValue = line.match(/^\s*([A-Za-z_$][\w$]*)\s*(?:\([^)]*\))?\s*[,;]?\s*$/);
+            if (enumValue && !isUpperSnake(enumValue[1])) {
+              addIssue(issues, {
+                level: 'fix', line: lineNo,
+                title: `enum定数「${enumValue[1]}」は UPPER_SNAKE_CASE にしてください`,
+                suggestion: `例: ${toUpperSnake(enumValue[1])}`
+              });
+            }
+          }
+
+          for (const ch of line) {
+            if (ch === '{') depth++;
+            if (ch === '}') depth = Math.max(0, depth - 1);
+          }
+          if (enumDepth != null && depth < enumDepth) enumDepth = null;
+        });
+
+        // Java string comparison with == / != when a literal or known String variable participates.
+        noComments.forEach((line, index) => {
+          const regex = /("(?:\\.|[^"\\])*"|[A-Za-z_$][\w$]*)\s*(==|!=)\s*("(?:\\.|[^"\\])*"|[A-Za-z_$][\w$]*)/g;
+          let match;
+          while ((match = regex.exec(line)) !== null) {
+            const left = match[1];
+            const right = match[3];
+            const isStringSide = left.startsWith('"') || right.startsWith('"') || stringVars.has(left) || stringVars.has(right);
+            if (isStringSide) {
+              addIssue(issues, {
+                level: 'fix', line: index + 1,
+                title: 'Stringの比較に == / != が使われています',
+                message: 'Javaの == / != は文字列内容ではなく参照を比較します。',
+                suggestion: 'equals / Objects.equals など、意図に合う比較を使用してください。'
+              });
+              break;
+            }
+          }
+        });
+      }
+
+      function analyzeJava(lex, issues) {
+        const { structural, noComments } = lex;
+
+        structural.forEach((line, index) => {
+          const lineNo = index + 1;
+          if (/\bSystem\.out\.println\s*\(/.test(line)) {
+            addIssue(issues, {
+              level: 'warn', line: lineNo,
+              title: 'System.out.println が残っています',
+              suggestion: 'デバッグ出力の消し忘れでないか確認してください。必要ならプロジェクトのロガーを使用します。'
+            });
+          }
+          if (/\.printStackTrace\s*\(/.test(line)) {
+            addIssue(issues, {
+              level: 'warn', line: lineNo,
+              title: 'printStackTrace() が残っています',
+              suggestion: '例外の扱い方やプロジェクトのログ方針に合わせて処理してください。'
+            });
+          }
+          if (/\bcatch\s*\(\s*Exception\b/.test(line)) {
+            addIssue(issues, {
+              level: 'info', line: lineNo,
+              title: 'Exception を広く catch しています',
+              suggestion: '必要に応じて、より具体的な例外型を扱えないか確認してください。'
+            });
+          }
+        });
+
+        const joined = structural.join('\n');
+        const emptyCatchRegex = /catch\s*\([^)]*\)\s*\{\s*\}/g;
+        let match;
+        while ((match = emptyCatchRegex.exec(joined)) !== null) {
+          const line = joined.slice(0, match.index).split('\n').length;
+          addIssue(issues, {
+            level: 'fix', line,
+            title: '空の catch ブロックがあります',
+            suggestion: '例外を握りつぶす意図が明確でない場合は、適切な処理・ログ・再throwを検討してください。'
+          });
+        }
+      }
+
+      function analyzeJavaScriptNaming(lex, issues) {
+        const { structural, noComments } = lex;
+        let depth = 0;
+
+        structural.forEach((line, index) => {
+          const original = noComments[index];
+          const lineNo = index + 1;
+          const startDepth = depth;
+
+          const declarations = Array.from(line.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*(?:=\s*([^,;]+))?/g));
+          for (const declaration of declarations) {
+            const name = declaration[1];
+            const initializer = declaration[2] || '';
+            const isTopLevelPrimitiveConst = startDepth === 0
+              && /\bconst\b/.test(declaration[0])
+              && /^(?:\s*(?:[-+]?\d+(?:\.\d+)?|true|false|null|undefined)\s*|\s*$)/.test(initializer);
+            const constantWords = /(?:max|min|default|limit|timeout|interval|duration|retry|size|count|version|prefix|suffix)/i.test(name);
+            const constantCandidate = isTopLevelPrimitiveConst && constantWords;
+            checkVariableName(name, '', lineNo, original, issues, { initializer, constant: constantCandidate });
+
+            if (constantCandidate && !isUpperSnake(name)) {
+              addIssue(issues, {
+                level: 'info', line: lineNo,
+                title: `トップレベル定数候補「${name}」の命名を確認してください`,
+                suggestion: `定数として扱う値なら ${toUpperSnake(name)} のような UPPER_SNAKE_CASE を検討してください。`
+              });
+            }
+
+            if (/^\s*\[/.test(initializer) && !/(?:s|List|Array)$/.test(name)) {
+              addIssue(issues, {
+                level: 'info', line: lineNo,
+                title: `配列変数「${name}」は複数であることが分かる名前を検討してください`,
+                suggestion: '例: users / items / userIds'
+              });
+            }
+          }
+
+          const functionDecl = line.match(/\bfunction\s+([A-Za-z_$][\w$]*)\s*\(/);
+          if (functionDecl) checkMethodName(functionDecl[1], lineNo, '', '', issues);
+
+          const arrowOrFunctionExpr = line.match(/\b(?:const|let)\s+([A-Za-z_$][\w$]*)\s*=\s*(?:async\s*)?(?:function\b|(?:\([^)]*\)|[A-Za-z_$][\w$]*)\s*=>)/);
+          if (arrowOrFunctionExpr) checkMethodName(arrowOrFunctionExpr[1], lineNo, '', '', issues);
+
+          const methodSyntax = line.match(/^\s*(?:async\s+)?([A-Za-z_$][\w$]*)\s*\([^;]*\)\s*\{/);
+          if (methodSyntax && !/^(?:if|for|while|switch|catch|function)$/.test(methodSyntax[1])) {
+            checkMethodName(methodSyntax[1], lineNo, '', '', issues);
+          }
+
+          for (const ch of line) {
+            if (ch === '{') depth++;
+            if (ch === '}') depth = Math.max(0, depth - 1);
+          }
+        });
+      }
+
+      function isOperatorInsideString(lex, lineIndex, column) {
+        return (lex.stringsByLine[lineIndex] || []).some(token => {
+          const end = token.end == null ? Infinity : token.end;
+          return column > token.start && column < end;
+        });
+      }
+
+      function analyzeJsQuotes(lex, issues) {
+        lex.stringsByLine.forEach((tokens, index) => {
+          for (const token of tokens) {
+            if (token.quote === '"') {
+              addIssue(issues, {
+                level: 'warn', line: index + 1,
+                title: '文字列はシングルクォートを使用してください',
+                message: 'ダブルクォートの文字列が使われています。',
+                suggestion: "例: 'text'"
+              });
+            }
+          }
+        });
+      }
+
+      function analyzeJsEquality(lex, issues) {
+        lex.structural.forEach((line, index) => {
+          for (let i = 0; i < line.length - 1; i++) {
+            const pair = line.slice(i, i + 2);
+            if (pair !== '==' && pair !== '!=') continue;
+            if (line[i + 2] === '=' || line[i - 1] === '=') continue;
+
+            const original = lex.noComments[index];
+            const left = original.slice(0, i).trimEnd();
+            const right = original.slice(i + 2).trimStart();
+            const nullException = /\bnull$/.test(left) || /^null\b/.test(right);
+            if (!nullException) {
+              addIssue(issues, {
+                level: 'fix', line: index + 1,
+                title: `${pair} ではなく ${pair === '==' ? '===' : '!=='} を使用してください`,
+                message: '== null / != null は例外として許可しています。'
+              });
+            }
+            i++;
+          }
+        });
+      }
+
+      function analyzeJsValueComparison(lex, issues) {
+        lex.noComments.forEach((line, index) => {
+          const patterns = [
+            { regex: /([A-Za-z_$][\w$\.\[\]()]*\.value)\s*(===|!==)\s*('(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`|[A-Za-z_$][\w$\.\[\]()]*(?:\([^)]*\))?|[-+]?\d+(?:\.\d+)?)/g, side: 'right' },
+            { regex: /('(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`|[A-Za-z_$][\w$\.\[\]()]*(?:\([^)]*\))?|[-+]?\d+(?:\.\d+)?)\s*(===|!==)\s*([A-Za-z_$][\w$\.\[\]()]*\.value)/g, side: 'left' }
+          ];
+
+          for (const config of patterns) {
+            let match;
+            while ((match = config.regex.exec(line)) !== null) {
+              const operatorOffset = match[0].indexOf(match[2]);
+              const operatorCol = match.index + operatorOffset;
+              if (isOperatorInsideString(lex, index, operatorCol)) continue;
+              const operand = config.side === 'right' ? match[3] : match[1];
+              if (!(operand.startsWith("'") && operand.endsWith("'"))) {
+                addIssue(issues, {
+                  level: 'fix', line: index + 1,
+                  title: '.value の比較相手はシングルクォート文字列にしてください',
+                  suggestion: "例: input.value === '1' / '1' !== select.value"
+                });
+              }
+            }
+          }
+        });
+      }
+
+      function analyzeJsSpacing(lex, issues) {
+        lex.structural.forEach((line, index) => {
+          const lineNo = index + 1;
+          const keywordRegex = /\b(if|for|while|switch|catch)\s*\(/g;
+          let match;
+          while ((match = keywordRegex.exec(line)) !== null) {
+            const full = match[0];
+            const keyword = match[1];
+            const between = full.slice(keyword.length, full.lastIndexOf('('));
+            if (between !== ' ') {
+              addIssue(issues, {
+                level: 'fix', line: lineNo,
+                title: `${keyword} の後ろは半角スペース1個にしてください`,
+                suggestion: `例: ${keyword} (...)`
+              });
+              break;
+            }
+          }
+
+          for (let i = 0; i < line.length; i++) {
+            if (line[i] !== '{') continue;
+            const before = line.slice(0, i);
+            if (!before.trim()) continue;
+            const prev = line[i - 1] || '';
+            const prev2 = line[i - 2] || '';
+            if (prev !== ' ' || prev2 === ' ' || prev === '\t') {
+              addIssue(issues, {
+                level: 'fix', line: lineNo,
+                title: '{ の前は半角スペース1個にしてください',
+                suggestion: '例: if (condition) { / function run() {'
+              });
+              break;
+            }
+          }
+        });
+      }
+
+      function lineLooksLikeContinuation(line, previous) {
+        const current = line.trim();
+        const prev = (previous || '').trim();
+        return /^(?:\.|\)|\]|&&|\|\||\?|:)/.test(current)
+          || /(?:\(|\[|,|\.|\+|-|\*|\/|&&|\|\||\?|:|=|=>)$/.test(prev);
+      }
+
+      function analyzeJsIndentation(lex, issues) {
+        let depth = 0;
+        const switchStack = [];
+        let previousCode = '';
+
+        for (let index = 0; index < lex.structural.length; index++) {
+          const structuralLine = lex.structural[index];
+          const original = lex.lines[index];
+          const trimmed = structuralLine.trim();
+          if (!trimmed) continue;
+
+          if (/^\s*\t+/.test(original) || /^ +\t/.test(original)) {
+            addIssue(issues, {
+              level: 'fix', line: index + 1,
+              title: 'インデントにタブが使われています',
+              suggestion: 'JavaScriptのインデントは半角スペース2個に統一してください。'
+            });
+          } else {
+            const leading = countLeadingSpaces(original);
+            const invalidIndentUnit = leading % 2 !== 0;
+            if (invalidIndentUnit) {
+              addIssue(issues, {
+                level: 'fix', line: index + 1,
+                title: 'インデントは半角スペース2個単位にしてください',
+                message: `現在は先頭に ${leading} 個のスペースがあります。`
+              });
+            }
+
+            const closesFirst = /^}/.test(trimmed) ? 1 : 0;
+            const baseDepth = Math.max(0, depth - closesFirst);
+            const currentSwitch = switchStack[switchStack.length - 1];
+            const isCase = /^(?:case\b.*:|default\s*:)/.test(trimmed);
+            const caseExtra = currentSwitch && currentSwitch.activeCase && baseDepth >= currentSwitch.bodyDepth && !isCase ? 1 : 0;
+            const expected = (baseDepth + caseExtra) * 2;
+            const continuation = lineLooksLikeContinuation(structuralLine, previousCode);
+
+            if (!invalidIndentUnit && !continuation && leading !== expected) {
+              addIssue(issues, {
+                level: 'warn', line: index + 1,
+                title: `インデントを ${expected} スペースに揃えてください`,
+                message: `現在は ${leading} スペースです。`,
+                suggestion: 'ブロックごとに半角スペース2個でインデントしてください。'
+              });
+            } else if (!invalidIndentUnit && continuation && leading < expected) {
+              addIssue(issues, {
+                level: 'warn', line: index + 1,
+                title: '継続行のインデントが浅すぎます',
+                suggestion: `少なくとも ${expected} スペース以上を目安にしてください。`
+              });
+            }
+          }
+
+          if (/\bswitch\s*\([^)]*\)\s*\{/.test(structuralLine)) {
+            switchStack.push({ bodyDepth: depth + 1, activeCase: false });
+          }
+          const topSwitch = switchStack[switchStack.length - 1];
+          if (topSwitch && depth === topSwitch.bodyDepth && /^(?:case\b.*:|default\s*:)/.test(trimmed)) {
+            topSwitch.activeCase = true;
+          }
+
+          for (const ch of structuralLine) {
+            if (ch === '{') depth++;
+            if (ch === '}') {
+              depth = Math.max(0, depth - 1);
+              const last = switchStack[switchStack.length - 1];
+              if (last && depth < last.bodyDepth) switchStack.pop();
+            }
+          }
+          previousCode = structuralLine;
+        }
+      }
+
+      function classifyJsOpening(line) {
+        const t = line.trim();
+        if (/\bfunction\s+[A-Za-z_$][\w$]*\s*\([^)]*\)\s*\{$/.test(t)) return 'function-declaration';
+        if (/\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*(?:async\s*)?function\b.*\{$/.test(t)) return 'expression';
+        if (/\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=.*=>\s*\{$/.test(t)) return 'expression';
+        if (/\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{$/.test(t)) return 'expression';
+        return 'block';
+      }
+
+      function likelyNeedsSemicolon(line, nextLine) {
+        const t = line.trim();
+        if (!t) return false;
+        if (/[;,{:]$/.test(t)) return false;
+        if (/\{$/.test(t)) return false;
+        if (/^}/.test(t)) return false;
+        if (/^(?:if|for|while|switch|try|catch|finally|else|do)\b/.test(t)) return false;
+        if (/^function\b/.test(t)) return false;
+        if (/^class\b/.test(t)) return false;
+        if (/^(?:case\b.*:|default\s*:)/.test(t)) return false;
+        if (/(?:\.|\(|\[|\+|-|\*|\/|&&|\|\||\?|:|=|=>)$/.test(t)) return false;
+        if (nextLine && /^(?:\.|\)|\]|\?|:|&&|\|\|)/.test(nextLine.trim())) return false;
+        if (/^(?:const|let|var|return\b|throw\b|break\b|continue\b|import\b|export\b|await\b)/.test(t)) return true;
+        if (/^(?:[A-Za-z_$][\w$\.\[\]()]*\s*(?:\+\+|--|[+\-*/%]?=))/.test(t)) return true;
+        if (/^(?:await\s+)?[A-Za-z_$][\w$\.\[\]]*\s*\([^)]*\)$/.test(t)) return true;
+        if (/^new\s+/.test(t)) return true;
+        return false;
+      }
+
+      function analyzeJsSemicolons(lex, issues) {
+        const stack = [];
+
+        for (let index = 0; index < lex.structural.length; index++) {
+          const line = lex.structural[index];
+          const statementLine = lex.noComments[index];
+          const trimmed = line.trim();
+          const next = lex.noComments[index + 1] || '';
+
+          // Function declaration closing brace must not have a semicolon.
+          if (/^}\s*;\s*$/.test(trimmed)) {
+            const top = stack[stack.length - 1];
+            if (top && top.type === 'function-declaration' && top.depth === stack.length) {
+              addIssue(issues, {
+                level: 'fix', line: index + 1,
+                title: '関数宣言の末尾にはセミコロンを付けません',
+                suggestion: 'function name() { ... } の閉じ波括弧の後ろの ; を削除してください。'
+              });
+            }
+          }
+
+          if (likelyNeedsSemicolon(statementLine, next) && !/;\s*$/.test(statementLine.trim())) {
+            addIssue(issues, {
+              level: 'fix', line: index + 1,
+              title: '文末にセミコロンを付けてください',
+              suggestion: 'この現場ではセミコロンを原則付与します。'
+            });
+          }
+
+          for (let col = 0; col < line.length; col++) {
+            const ch = line[col];
+            if (ch === '{') {
+              const before = line.slice(0, col + 1);
+              stack.push({ type: classifyJsOpening(before), line: index + 1, depth: stack.length + 1 });
+            } else if (ch === '}') {
+              const top = stack.pop();
+              const after = line.slice(col + 1).trim();
+              if (top && top.type === 'expression' && (after === '' || (!after.startsWith(';') && !after.startsWith(',')))) {
+                addIssue(issues, {
+                  level: 'fix', line: index + 1,
+                  title: '関数式・アロー関数・オブジェクト代入の末尾にセミコロンを付けてください',
+                  suggestion: '代入式の終端は }; とします。'
+                });
+              }
+              if (top && top.type === 'function-declaration' && /^;/.test(after)) {
+                addIssue(issues, {
+                  level: 'fix', line: index + 1,
+                  title: '関数宣言の末尾にはセミコロンを付けません',
+                  suggestion: '閉じ波括弧の後ろの ; を削除してください。'
+                });
+              }
+            }
+          }
+        }
+      }
+
+      function analyzeJavaScript(lex, issues) {
+        analyzeJsQuotes(lex, issues);
+        analyzeJsEquality(lex, issues);
+        analyzeJsValueComparison(lex, issues);
+        analyzeJsSpacing(lex, issues);
+        analyzeJsIndentation(lex, issues);
+        analyzeJsSemicolons(lex, issues);
+
+        lex.structural.forEach((line, index) => {
+          if (/\bvar\b/.test(line)) {
+            addIssue(issues, {
+              level: 'fix', line: index + 1,
+              title: 'var は禁止です',
+              suggestion: '再代入しない場合は const、再代入が必要な場合は let を使用してください。'
+            });
+          }
+          if (/\bconsole\.log\s*\(/.test(line)) {
+            addIssue(issues, {
+              level: 'warn', line: index + 1,
+              title: 'console.log が残っています',
+              suggestion: 'デバッグ出力の消し忘れでないか確認してください。'
+            });
+          }
+          if (/\bdebugger\s*;?/.test(line)) {
+            addIssue(issues, {
+              level: 'fix', line: index + 1,
+              title: 'debugger が残っています',
+              suggestion: 'コミット前に削除してください。'
+            });
+          }
+        });
+
+        const joined = lex.structural.join('\n');
+        let match;
+        const emptyCatch = /catch\s*(?:\([^)]*\))?\s*\{\s*\}/g;
+        while ((match = emptyCatch.exec(joined)) !== null) {
+          const line = joined.slice(0, match.index).split('\n').length;
+          addIssue(issues, {
+            level: 'warn', line,
+            title: '空の catch ブロックがあります',
+            suggestion: '例外を意図的に無視する場合でも、理由が分かる実装にしてください。'
+          });
+        }
+      }
+
+      function dedupeIssues(issues) {
+        const seen = new Set();
+        return issues.filter(issue => {
+          const key = [issue.line, issue.endLine, issue.title].join('|');
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
+
+      function reviewSource(source, lang) {
+        const lex = lexSource(source, lang);
+        const issues = [];
+        analyzeComments(lex, lang, issues);
+        analyzeCommon(lex, lang, issues);
+        if (lang === 'java') analyzeJava(lex, issues);
+        else analyzeJavaScript(lex, issues);
+
+        const rank = { fix: 0, warn: 1, info: 2 };
+        const sorted = dedupeIssues(issues).sort((a, b) => a.line - b.line || rank[a.level] - rank[b.level] || a.title.localeCompare(b.title, 'ja'));
+        return { issues: sorted, lex };
+      }
+
+      function runReview() {
+        const source = els.code.value;
+        updateGutter();
+
+        if (!source.trim()) {
+          lastIssues = [];
+          lastLex = lexSource('', language);
+          renderResults([]);
+          return;
+        }
+
+        const result = reviewSource(source, language);
+        lastIssues = result.issues;
+        lastLex = result.lex;
+        renderResults(lastIssues);
+        updateGutter(lastIssues);
+
+      }
+
+
+      function categoryForIssue(issue) {
+        const text = `${issue.title || ''} ${issue.message || ''}`;
+        if (/(?:変数名|メソッド名|クラス名|定数|Boolean|略語|接頭辞|UPPER_SNAKE_CASE|lowerCamelCase|PascalCase)/.test(text)) return '命名';
+        if (/(?:インデント|スペース|セミコロン|シングルクォート|ダブルクォート|文字列|1行が\d+文字|文末|波括弧)/.test(text)) return '書式';
+        return 'コード品質';
+      }
+
+      function fixExampleForIssue(issue, snippet) {
+        if (!snippet) return issue.suggestion || '';
+        const title = issue.title || '';
+        let example = '';
+
+        if (title === 'var は禁止です') {
+          example = snippet.replace(/\bvar\b/, 'const');
+        } else if (/シングルクォート/.test(title) || /ダブルクォート/.test(title)) {
+          example = snippet.replace(/"([^"\n]*)"/, "'$1'");
+        } else if (/===|!==/.test(title) && /==|!=/.test(snippet)) {
+          example = snippet
+            .replace(/(^|[^=!])==(?!=)/g, '$1===')
+            .replace(/(^|[^!])!=(?!=)/g, '$1!==');
+        } else if (/キーワード.*スペース|半角スペース1個/.test(title)) {
+          example = snippet.replace(/\b(if|for|while|switch|catch)\s*\(/, '$1 (');
+        } else if (/波括弧|\{.*スペース/.test(title)) {
+          example = snippet.replace(/\s*\{/, ' {');
+        } else if (/文末にセミコロン/.test(title) && !/;\s*$/.test(snippet)) {
+          example = `${snippet};`;
+        } else if (/関数宣言の末尾にはセミコロン/.test(title)) {
+          example = snippet.replace(/}\s*;\s*$/, '}');
+        } else if (/\.value/.test(title)) {
+          example = "input.value === '1'";
+        }
+
+        return example || issue.suggestion || '';
+      }
+
+      function groupIssuesByLine(issues) {
+        const groups = new Map();
+        for (const issue of issues) {
+          const key = issue.line;
+          if (!groups.has(key)) groups.set(key, []);
+          groups.get(key).push(issue);
+        }
+        return [...groups.entries()].map(([line, items]) => ({ line, items }));
+      }
+
+      function renderResults(issues) {
+        const counts = issues.reduce((acc, issue) => {
+          acc[issue.level]++;
+          return acc;
+        }, { fix: 0, warn: 0, info: 0 });
+
+        els.summary.innerHTML = issues.length
+          ? `<span class="count-pill fix">要修正 ${counts.fix}</span><span class="count-pill warn">警告 ${counts.warn}</span><span class="count-pill info">情報 ${counts.info}</span>`
+          : '';
+        els.copyBtn.disabled = issues.length === 0;
+
+        if (!els.code.value.trim()) {
+          els.resultList.innerHTML = '';
+          return;
+        }
+
+        if (issues.length === 0) {
+          els.resultList.innerHTML = `
+            <div class="empty-state">
+              <div>
+                <div class="empty-icon">✓</div>
+                <div class="empty-title">現在のルールでは指摘はありません</div>
+              </div>
+            </div>`;
+          return;
+        }
+
+        const lines = els.code.value.split('\\n');
+        const groups = groupIssuesByLine(issues);
+
+        els.resultList.innerHTML = groups.map(group => {
+          const snippet = lineSnippet(lines, group.line);
+          const visible = group.items.slice(0, MAX_ISSUES_PER_LINE);
+          const hiddenCount = Math.max(0, group.items.length - visible.length);
+          const highest = visible.some(i => i.level === 'fix') ? 'fix' : visible.some(i => i.level === 'warn') ? 'warn' : 'info';
+
+          const issueHtml = visible.map(issue => {
+            const example = fixExampleForIssue(issue, snippet);
+            return `
+              <div class="line-issue">
+                <div class="issue-meta">
+                  <span class="level-chip ${issue.level}">${levelLabel(issue.level)}</span>
+                  <span class="category-chip">${categoryForIssue(issue)}</span>
+                </div>
+                <div class="issue-title">${escapeHtml(issue.title)}</div>
+                ${issue.message ? `<div class="issue-message">${escapeHtml(issue.message)}</div>` : ''}
+                ${example ? `<div class="fix-example"><strong>修正例</strong>${escapeHtml(example)}</div>` : ''}
+              </div>`;
+          }).join('');
+
+          return `
+            <button type="button" class="line-card" data-line="${group.line}" aria-label="Line ${group.line} の指摘 ${group.items.length}件">
+              <div class="line-card-head">
+                <span class="line-label">L${group.line}</span>
+                <span class="level-chip ${highest}">${group.items.length}件</span>
+              </div>
+              ${snippet ? `<pre class="line-code">${escapeHtml(snippet)}</pre>` : ''}
+              <div class="line-issues">${issueHtml}</div>
+              ${hiddenCount ? `<div class="more-issues">ほか ${hiddenCount} 件の指摘を省略しています</div>` : ''}
+            </button>`;
+        }).join('');
+
+        els.resultList.querySelectorAll('.line-card').forEach(card => {
+          card.addEventListener('click', () => jumpToLine(Number(card.dataset.line)));
+        });
+      }
+
+      function updateGutter(issues = lastIssues) {
+        const lineCount = Math.max(1, els.code.value.split('\n').length);
+        const lineLevels = new Map();
+        for (const issue of issues || []) {
+          for (let line = issue.line; line <= issue.endLine; line++) {
+            const current = lineLevels.get(line);
+            if (!current || (current === 'info' && issue.level !== 'info') || (current === 'warn' && issue.level === 'fix')) {
+              lineLevels.set(line, issue.level);
+            }
+          }
+        }
+
+        let html = '';
+        for (let i = 1; i <= lineCount; i++) {
+          const level = lineLevels.get(i);
+          const cls = level ? `gutter-line has-issue has-${level}` : 'gutter-line';
+          html += `<div class="${cls}">${i}</div>`;
+        }
+        els.gutter.innerHTML = html;
+        syncGutterScroll();
+      }
+
+      function syncGutterScroll() {
+        els.gutter.style.transform = `translateY(${-els.code.scrollTop}px)`;
+      }
+
+      function jumpToLine(lineNumber) {
+        const source = els.code.value;
+        const lines = source.split('\n');
+        const clamped = Math.min(Math.max(1, lineNumber), lines.length);
+        let start = 0;
+        for (let i = 0; i < clamped - 1; i++) start += lines[i].length + 1;
+        const end = start + lines[clamped - 1].length;
+        els.code.focus();
+        els.code.setSelectionRange(start, end);
+        const lineHeight = parseFloat(getComputedStyle(els.code).lineHeight) || 22;
+        els.code.scrollTop = Math.max(0, (clamped - 4) * lineHeight);
+        syncGutterScroll();
+      }
+
+      function copyReview() {
+        if (!lastIssues.length) return;
+        const langLabel = language === 'java' ? 'Java' : 'JavaScript';
+        const text = [
+          `Code Review Checker - ${langLabel}`,
+          `指摘: ${lastIssues.length}件`,
+          '',
+          ...lastIssues.map(issue => {
+            const range = issue.endLine > issue.line ? `L${issue.line}-${issue.endLine}` : `L${issue.line}`;
+            return `[${levelLabel(issue.level)}] [${categoryForIssue(issue)}] ${range} ${issue.title}${issue.suggestion ? `\n  → ${issue.suggestion}` : ''}`;
+          })
+        ].join('\n');
+
+        const fallback = () => {
+          const temp = document.createElement('textarea');
+          temp.value = text;
+          temp.style.position = 'fixed';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          temp.remove();
+          showToast('レビュー結果をコピーしました');
+        };
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(() => showToast('レビュー結果をコピーしました')).catch(fallback);
+        } else {
+          fallback();
+        }
+      }
+
+      function switchLanguage(next) {
+        if (next === language) return;
+        language = next;
+        els.langBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.language === language)));
+        if (language === 'javascript') {
+          els.code.setAttribute('placeholder', 'JavaScriptコードを貼り付けてください。');
+        } else {
+          els.code.setAttribute('placeholder', 'Javaコードを貼り付けてください。');
+        }
+        runReview();
+      }
+
+      els.code.addEventListener('input', () => {
+        updateGutter();
+        scheduleReview();
+      });
+
+      els.code.addEventListener('scroll', syncGutterScroll, { passive: true });
+
+      els.code.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && language === 'javascript') {
+          event.preventDefault();
+          const start = els.code.selectionStart;
+          const end = els.code.selectionEnd;
+          els.code.setRangeText('  ', start, end, 'end');
+          els.code.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      });
+
+      els.langBtns.forEach(btn => btn.addEventListener('click', () => switchLanguage(btn.dataset.language)));
+
+      els.clearBtn.addEventListener('click', () => {
+        els.code.value = '';
+        lastIssues = [];
+        runReview();
+        els.code.focus();
+      });
+
+      els.copyBtn.addEventListener('click', copyReview);
+
+      els.themeToggle.addEventListener('click', () => {
+        const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+      });
+
+      // Initial state
+      renderThemeToggle();
+      updateGutter([]);
+      renderResults([]);
+    })();
+  </script>
+</body>
+</html>
