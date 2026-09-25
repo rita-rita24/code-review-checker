@@ -3,10 +3,10 @@ const { createHash } = require('node:crypto');
 const { test } = require('node:test');
 const { html } = require('./harness.cjs');
 
-test('all static markup, styles, labels and buttons match the pre-QA UI', () => {
+test('all static markup, styles, labels and buttons match the UI after comment cleanup', () => {
   const markup = html.replace(/  <!-- (?:BEGIN|END) EMBEDDED ACORN -->\n/g, '')
     .replace(/  <script\b[^>]*>[\s\S]*?<\/script>\n/gi, '');
-  assert.equal(createHash('sha256').update(markup).digest('hex'), '2210ac9e6729286ebfd8f4d9e6a9270776558e0d4de63d1114ea95c1fd6ccaa6');
+  assert.equal(createHash('sha256').update(markup).digest('hex'), '7b90d4c3eb9a9521c513dfb03416273ad8d90e0fda38f1d9b29a4fbaa6f061b5');
 });
 
 test('all runtime scripts remain embedded for offline single-file distribution', () => {

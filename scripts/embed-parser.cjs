@@ -27,9 +27,18 @@ const html = fs.readFileSync(file, 'utf8');
 const marker = /  <!-- BEGIN EMBEDDED ACORN -->[\s\S]*?  <!-- END EMBEDDED ACORN -->\n/;
 if (!marker.test(html)) throw new Error('Missing embedded parser marker');
 let next = html.replace(marker, () => embedded);
-const source = fs.readFileSync(path.join(root, 'src/checker.js'), 'utf8')
+const sourceWithComments = fs.readFileSync(path.join(root, 'src/checker.js'), 'utf8')
   .replace('      // EMBED JAVASCRIPT ANALYSIS', () => fs.readFileSync(path.join(root, 'src/javascript-analysis.js'), 'utf8').trimEnd())
   .replace('      // EMBED JAVA ANALYSIS', () => fs.readFileSync(path.join(root, 'src/java-analysis.js'), 'utf8').trimEnd());
+const comments = [];
+require('acorn').parse(sourceWithComments, { ecmaVersion: 'latest', onComment: comments });
+let source = sourceWithComments;
+for (const { start, end } of comments.reverse()) {
+  const replacement = source.slice(start, end).replace(/[^\r\n]/g, '');
+  const lineStart = source.lastIndexOf('\n', start - 1) + 1;
+  const standalone = /^[\t ]*$/.test(source.slice(lineStart, start));
+  source = source.slice(0, standalone ? lineStart : start) + (standalone ? replacement : ' ' + replacement) + source.slice(end);
+}
 if (/<\/script/i.test(source)) throw new Error('App source contains an unescaped HTML script terminator');
 new (require('node:vm').Script)(source, { filename: 'checker.js' });
 const appScript = /  <script>\n[\s\S]*?<\/script>(?=\n<\/body>)/;
