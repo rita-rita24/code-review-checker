@@ -847,7 +847,7 @@
         }
 
         function analyzeCommon(lex, issues) {
-          const { lines, structural } = lex;
+          const { lines } = lex;
 
           lines.forEach((line, index) => {
             if (line.replace(/\t/g, '  ').length > LONG_LINE_LIMIT) {
@@ -858,28 +858,6 @@
                 suggestion: '式や引数を適切な位置で改行してください。'
               });
             }
-          });
-
-          let depth = 0;
-          let deepReportedAt = -1;
-          structural.forEach((line, index) => {
-            const trimmed = line.trimStart();
-            const closesFirst = trimmed.startsWith('}') ? 1 : 0;
-            const effectiveDepth = Math.max(0, depth - closesFirst);
-            if (trimmed && effectiveDepth >= 4 && deepReportedAt !== effectiveDepth) {
-              addIssue(issues, {
-                level: 'info', line: index + 1,
-                title: 'ネストが深くなっています',
-                message: `現在のブロック深度はおよそ ${effectiveDepth} 階層です。`,
-                suggestion: '早期return、処理の分割、条件式の整理を検討してください。'
-              });
-              deepReportedAt = effectiveDepth;
-            }
-            for (const ch of line) {
-              if (ch === '{') depth++;
-              if (ch === '}') depth = Math.max(0, depth - 1);
-            }
-            if (depth < 4) deepReportedAt = -1;
           });
         }
 
